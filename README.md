@@ -16,4 +16,4 @@ Une calculatrice web responsive avec des fonctions basiques, développée en HTM
 
 1. Clonez le dépôt :
 ```bash
-git clone https://github.com/votre-utilisateur/calculatrice.git
+git clone https://github.com/Tony501/Calculator
