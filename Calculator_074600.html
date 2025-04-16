@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator by Lonaj mg</title>
+    <style>
+        .logo{
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            display: grid;
+            font-size: 20px;
+            margin-bottom: 20px;
+            justify-content: center;
+            opacity: 0.6;
+            
+        }
+        p{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .container{
+            display: grid;
+            justify-content: center;
+        }
+        .frame{
+            margin-top: 120px;
+            display: grid;
+            grid-template-columns: 1fr;
+            background-color: rgb(126, 126, 126);
+            padding-top: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 25px;
+            border-radius: 50px;
+            box-shadow: 0px 1px 20px rgb(123, 123, 123);
+        }
+        .screen-part{
+            padding: 12px;
+            display: grid;
+            border-style: solid;
+            border-color: rgb(193, 193, 193);
+            margin-bottom: 20px;
+            background-color: beige;
+        }
+        .printer{
+            display: flex;
+            font-size: 45px;
+            justify-content: right;
+        }
+        button{
+            height: 50px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        button:hover{
+            background-color: rgb(215, 214, 214);
+            color: black;
+        }
+        button:active{
+            background-color: beige;
+            color: black;
+        }
+        .button-control{
+            width: 300px;
+            display: grid;
+            grid-template-columns: 90px 90px;
+            column-gap: 10px;
+            row-gap: 10px;
+            margin-bottom: 18px;
+            justify-content: center;
+        }
+
+        .button-part{
+            width: 300px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 10px;
+            row-gap: 10px;
+        }
+        .reset-btn{
+            background-color: rgb(255, 0, 0); 
+            color: white; 
+            font-weight: bold; font-size: 20px;
+        }
+        .clear-btn{
+            background-color: rgb(55, 202, 62);
+            color: white; 
+            font-weight: bold; font-size: 20px;
+        }
+        .operator-btn{
+            background-color: rgb(255, 172, 141);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let calculation = '';
+        
+        function updateDisplay() {
+            document.getElementById('affichage').innerHTML = calculation || '0';
+        }
+        
+        function clearLastEntry() {
+            calculation = calculation.toString().slice(0, -1);
+            updateDisplay();
+        }
+    </script>
+    <div class="container">
+        <div class="frame">
+            <div class="logo">Lonaj MG</div>
+            <div class="screen-part">
+                <p class="printer" id="affichage">0</p>
+            </div>
+
+            <div class="button-control">
+                <button class="reset-btn" onclick="
+                    calculation = '';
+                    updateDisplay();
+                ">Reset</button>
+                <button class="clear-btn" onclick="clearLastEntry()">Clear</button>
+            </div>
+            <div class="button-part">
+                <button onclick="
+                    calculation +='1';
+                    updateDisplay();
+                ">1</button>
+
+                <button onclick="
+                    calculation +='2';
+                    updateDisplay();
+                ">2</button>
+
+                <button onclick="
+                    calculation +='3';
+                    updateDisplay();
+                ">3</button>
+
+                <button onclick="
+                    calculation +='4';
+                    updateDisplay();
+                ">4</button>
+
+                <button onclick="
+                    calculation +='5';
+                    updateDisplay();
+                ">5</button>
+
+                <button onclick="
+                    calculation +='6';
+                    updateDisplay();
+                ">6</button>
+
+                <button onclick="
+                    calculation +='7';
+                    updateDisplay();                
+                ">7</button>
+
+                <button onclick="
+                    calculation +='8';
+                    updateDisplay();                
+                ">8</button>
+
+                <button onclick="
+                    calculation +='9';
+                    updateDisplay();                
+                ">9</button>
+
+                <button onclick="
+                    calculation +='0';
+                    updateDisplay();                
+                ">0</button>
+
+                <button class="operator-btn" onclick="
+                    calculation +='+';
+                    updateDisplay();                
+                ">+</button>
+
+                <button class="operator-btn" onclick="
+                    calculation +='-';
+                    updateDisplay();                
+                ">-</button>
+
+                <button class="operator-btn" onclick="
+                    calculation +='*';
+                    updateDisplay();                
+                ">X</button>
+
+                <button class="operator-btn" onclick="
+                    calculation +='/';
+                    updateDisplay();                
+                ">/</button>
+
+                <button class="operator-btn" onclick="
+                    try {
+                        calculation = eval(calculation).toString();
+                    } catch (e) {
+                        calculation = 'Error';
+                    }
+                    updateDisplay();                
+                ">=</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
